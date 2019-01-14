@@ -346,6 +346,12 @@ h4 {
   border-bottom: 1px solid white;
   padding: 1%;
 }
+.attribution {
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 1px 1px black;
+  margin: 5%
+}
 
 
 #logo {
@@ -366,6 +372,22 @@ h4 {
 
 #outline {
 }
+
+#kitt {
+  background: url(../img/40254693610_900fdc28bc_o.jpg) center center / cover no-repeat;
+}
+
+#lcars {
+  background: url(../img/Lcars_wallpaper.gif) center center / contain no-repeat;
+  background-color: black;
+}
+
+#timetrax {
+  background: url(../img/time-trax.jpg) center center / cover no-repeat;
+  background-color: black;
+}
+
+
 
 
 #anatomy {
