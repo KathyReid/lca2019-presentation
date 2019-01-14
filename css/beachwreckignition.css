@@ -33,6 +33,12 @@ Columns: 1
 }
 @font-face {
   font-family: 'Noto Sans';
+  src: url('../fonts/NotoSans-Italic.ttf');
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Noto Sans';
   src: url('../fonts/NotoSans-SemiBold.ttf');
   font-weight: 500;
   font-style: normal;
@@ -200,6 +206,9 @@ a:focus {
 .container-width-50 {
   width: 50%;
 }
+.container-width-70 {
+  width: 70%;
+}
 
 /*
     ... and we enhance the styles for impress.js.
@@ -289,10 +298,10 @@ h4 {
 
 .quote {
   color: #2C3E50;
-  font-size: 5em;
-  font-family: 'Noto Sans';
-  font-weight: 600;
-  line-height: 115%;
+  font-size: 5.4em;
+  font-weight: 500;
+  line-height: 125%;
+  font-style: italic;
 }
 
 .highlight {
@@ -327,10 +336,10 @@ h4 {
 .bulletedList {
   list-style-type: disc;
   list-style-position: inside;
-  padding-top: 5%;
+  padding-top: 1%;
 }
 .bulletedList li, .bulletedListLine li {
-  font-size: 4em;
+  font-size: 3.6em;
   line-height: 120%;
 }
 .bulletedListLine li {
@@ -355,139 +364,13 @@ h4 {
   background: url(../img/4960397542_ededfa35c1_o-colorised.png) center right no-repeat;
 }
 
-#overview {
-  background: url(../img/mycroft-mark2.png) center right no-repeat;
+#outline {
 }
 
 
 #anatomy {
   background: url(../img/mycroft-voice-stack.png) center center / contain no-repeat;
   background-color: white;
-}
-
-
-#blueangle {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url(../img/blue-angle.svg) center center / cover no-repeat;
-  width: 8147px;
-  height: 16284px;
-  z-index: 98;
-}
-
-#clevercreative {
-  background: url(../img/clever-creative-future.png) center left / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 505;
-}
-
-#clevercreativevoting {
-  background: url(../img/clever-creative-voting.png) top center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 410;
-}
-
-#opendataportal {
-  background: url(../img/geelong-open-data-portal.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 506;
-}
-
-#opendatastats {
-  background: url(../img/geelong-opendata-portal-usage.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 507;
-}
-
-#digitalgeelong {
-  background: url(../img/digital-strategy.jpg) top center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 500;
-}
-
-#govhack {
-  background: url(../img/20150705_115631.jpg) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 501;
-}
-
-#govhack2 {
-  background: url(../img/20150705_170224.jpg) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 502;
-}
-
-#govhack3 {
-  background: url(../img/geelong-2065.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 503;
-}
-
-#govhack4 {
-  background: url(../img/might-ducks.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 504;
-}
-
-#geelongfreewifi {
-  background: url(../img/free-wifi-geelong.jpg) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 507;
-}
-
-#geelongadvertiser {
-  background: url(../img/geelong-advertiser-parking-meters.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  z-index: 508;
-}
-
-#unesco {
-  background: url(../img/creative-cities.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-}
-
-#geemap {
-  background: url(../img/GEEmap-ecosystem-map3.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-}
-
-#mavhack  {
-  background: url(../img/mavhack.jpg) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  z-index: 509;
-}
-
-#bollards  {
-  background: url(../img/smart-bollards.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  z-index: 510;
-}
-
-#cityasdata  {
-  background: url(../img/library-heritage-edge-detection.png) center center / cover no-repeat;
-  height: 100vh;
-  width: 100vw;
-  background-color: white;
-  z-index: 520;
 }
 
 
