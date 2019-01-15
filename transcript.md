@@ -53,13 +53,21 @@ Now, I'm going to dive a little deeper into each of the different layers of the 
 
 ## PocketSphinx
 
-One of the earliest Wake Word engines used was PocketSphinx. PocketSphinx recognises Wake Words based on something called _phonemes_.
+One of the earliest Wake Word engines used was PocketSphinx. PocketSphinx is part of the broader CMU Sphinx project from Carnegie Mellon University. PocketSphinx recognises Wake Words based on something called _phonemes_. What's a _phoneme_? Good question!
 
 ## Phonemes
 
 IMAGE: Phonemes
 
-A phoneme is the smallest unit of sound that distinguishes one word from another in a particular language. Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
+A phoneme is the smallest unit of sound that distinguishes one word from another in a particular language.
+
+Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
+
+The other challenge with using Phonemes in Wake Words is that certain Phonemes sound very similar to each other.
+
+IMAGE: Similar sounding phonemes
+
+
 
 ## Snowboy
 
@@ -69,7 +77,7 @@ Snowboy is another Hot Word detection engine – available under both commercial
 
 
 
-## Challenges with Wake Words 
+## Challenges with Wake Words
 
 Mycroft AI’s Precise Wake Word engine works in a similar way – by training a recurrent neural network to differentiate between what is and isn’t a Wake Word.
 
