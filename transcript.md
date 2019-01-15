@@ -67,7 +67,9 @@ The other challenge with using Phonemes in Wake Words is that certain Phonemes s
 
 IMAGE: Similar sounding phonemes
 
+This is one of the reasons why Wake Words for voice assistants are often very different-sounding to other words - that is, they're _differentiated_. Not much sounds like `Alexa` or `OK Google` or `Hey Mycroft`. This is a deliberate choice to make it easier to distinguish between phonemes.  If you're thinking about training your own Wake Word, then this is a factor you need to consider as well.
 
+But phonemes are not the only way to handle Wake Words.
 
 ## Snowboy
 
@@ -75,13 +77,67 @@ Snowboy is another Hot Word detection engine – available under both commercial
 
 ## Precise
 
-
+Mycroft AI’s Precise Wake Word engine works in a similar way – by training a recurrent neural network to differentiate between what is and isn’t a Wake Word. This is then trained on samples that *are* and *are not* Wake Words to improve the detection accuracy.
 
 ## Challenges with Wake Words
 
-Mycroft AI’s Precise Wake Word engine works in a similar way – by training a recurrent neural network to differentiate between what is and isn’t a Wake Word.
+SLIDE: Wake Word challenges
 
-All of these Wake Word detectors work ‘on device’ - meaning that they don’t need to send data to the cloud, which helps to protect privacy.
+### Always listening
+
+Even though all of these Wake Word detectors work `on device` - meaning that they don't need to send data to the cloud, they are `always listening`. That means that if the device on which the Wake Word listener is connected to the internet, it is _possible_ that Wake Word recordings are sent over the cloud. So this is something that you need to be very aware of with a voice assistant - make yourself aware of how that information is being used. At Mycroft for example, our users must opt-in before recordings are transmitted back to our servers for training to improve accuracy. If the user hasn't opted in, then the recording is discarded.
+
+We're actually seeing some interesting responses to this.
+
+IMAGE: Project Alias
+
+This is Project Alias, and this is like a "hat" for Alexa or Google Home, and what it does is run a small fan - it essentially "blocks" the device from hearing the Wake Word it's programmed with. Instead, you set a different Wake Word on the Project Alias device, and it acts essentially as a Wake Word proxy - and outputs the "real Wake Word" when you say the "proxy Wake Word" - it's really clever actually. Or, I mean, you could just use a voice assistant that doesn't sell your privacy to the highest bidder I suppose ;-)
+
+### Accuracy
+
+IMAGE: To be found
+
+I touched on accuracy before, but it's worth expanding on here, as it really is a challenge, not just for open source Wake Word engines, but for all Wake Word engines. It's a key challenge for a number of reasons.
+
+SLIDE: False positive vs false negative
+
+A Wake Word engine has to be trained for these four states  _go through states_. The way we do this is to train it on both positive and negative samples - that is, recordings that are, and are not, the Wake Word. It sounds really simple, doesn't it? Yeah... nah!
+
+What we've seen happen in reality at Mycroft AI - I can't speak for other voice platforms - is that there are lots of **biases** in the Wake Word samples;
+
+* We find that there are significantly more samples of male-sounding voices than female - by a factor of at least ten to 1
+* In our dataset, there are significantly more samples of American accents, as opposed to European, Asian or Latin American accents
+
+Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on. However, that also presents its own issues. At one point we considered filterng out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
+
+So that's some of the challenges we have with Wake Words.
+Let's move on to Speech to Text.
+
+
+# SPEECH TO TEXT
+
+SLIDE: Speech to Text
+
+Accurate Speech to Text conversion is one of the most challenging parts of the open source voice stack.
+
+Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too. One of Kaldi’s most attractive features is that it works “on-device”.
+
+SLIDE: Common voice languages 
+
+Mozilla’s DeepSpeech implementation – along with the related Common Voice data acquisition project – aims to also support a wider range of minority languages. As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’.
+
+
+## STT Challenges
+
+
+One of the biggest challenges with Speech to Text is training the model. Mycroft AI have partnered with Mozilla, enabling our community to help train DeepSpeech. We then pass the trained data back to Mozilla to help improve the accuracy of their models.
+
+
+
+
+
+
+
 
 
 

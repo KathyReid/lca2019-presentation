@@ -387,11 +387,23 @@ h4 {
   background-color: black;
 }
 
-
-
-
 #anatomy {
   background: url(../img/mycroft-voice-stack.png) center center / contain no-repeat;
+  background-color: white;
+}
+
+#wakeword-hat {
+  background: url(../img/3-hijack-amazon-echo-and-google-home-for-your-privacy.jpg) center center / contain no-repeat;
+  background-color: white;
+}
+
+#wakeword-accuracy {
+  background: url(../img/6384294717_8cda587e59_o.jpg) center center / cover no-repeat;
+  background-color: black;
+}
+
+#stt-commonvoice {
+  background: url(../img/common-voice-languages.png) center center / contain no-repeat;
   background-color: white;
 }
 
