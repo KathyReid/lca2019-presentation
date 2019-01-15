@@ -120,11 +120,13 @@ SLIDE: Speech to Text
 
 Accurate Speech to Text conversion is one of the most challenging parts of the open source voice stack.
 
-Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too. One of Kaldi’s most attractive features is that it works “on-device”.
+Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too.
 
-SLIDE: Common voice languages 
+One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits. 
 
-Mozilla’s DeepSpeech implementation – along with the related Common Voice data acquisition project – aims to also support a wider range of minority languages. As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’.
+SLIDE: Common voice languages
+
+Mozilla’s DeepSpeech implementation – along with the related Common Voice data acquisition project – aims to also support a wider range of minority languages. As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’, although a lot of work is going on to try and get it to work on ARM architecture and embedded devices.
 
 
 ## STT Challenges
