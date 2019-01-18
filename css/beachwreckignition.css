@@ -226,6 +226,9 @@ a:focus {
     transition:         opacity 1s;
 }
 
+/* hide the logo on the title slide */
+.impress-enabled #title #logo { opacity: 0}
+
 .impress-enabled .step.active, .impress-enabled .step:first-child.active { opacity: 1 }
 
 /*
@@ -365,6 +368,10 @@ h4 {
   z-index: 99;
 }
 
+#title {
+  background: url(../img/Beach_Wreck_Ignition_Challenges_in_open_source_voice.png) center center / cover no-repeat;
+}
+
 #intro {
   z-index: 10;
   background: url(../img/4960397542_ededfa35c1_o-colorised.png) center right no-repeat;
@@ -400,6 +407,11 @@ h4 {
 #wakeword-accuracy {
   background: url(../img/6384294717_8cda587e59_o.jpg) center center / cover no-repeat;
   background-color: black;
+}
+
+#wakeword-privacy {
+  background: url(../img/intercept-voice-recognition-tell-government-where-youre-from.png) center center / cover no-repeat;
+  background-color: white;
 }
 
 #stt-commonvoice {

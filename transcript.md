@@ -110,6 +110,14 @@ What we've seen happen in reality at Mycroft AI - I can't speak for other voice 
 
 Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on. However, that also presents its own issues. At one point we considered filterng out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
 
+## Longer term solutions
+
+Longer term, where I think open source Wake Word software is going is that _individuals_ will train their own Wake Word - for example, recording a few dozen examples of their Wake Word, which is then trained against a database of recordings which are known _not_ to be that Wake Word.
+
+This too has privacy implications though; if a Wake Word is trained to a specific individual, then could a voice assistant be used to identify that individual? That is, to distinguish one user from another?  What access would the government have to that data, particularly given the recent passage of the Access and Assistance Bill (#aabill), at least in Australia? This might sound alarmist at this point in history, but we've increasingly seen warrantless access to platform data by agencies which have peripheral or tangential claims to use that data. 
+
+IMAGE: Government could access your data
+
 So that's some of the challenges we have with Wake Words.
 Let's move on to Speech to Text.
 
@@ -122,7 +130,7 @@ Accurate Speech to Text conversion is one of the most challenging parts of the o
 
 Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too.
 
-One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits. 
+One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits.
 
 SLIDE: Common voice languages
 
