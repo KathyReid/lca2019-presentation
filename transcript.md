@@ -108,15 +108,17 @@ What we've seen happen in reality at Mycroft AI - I can't speak for other voice 
 * We find that there are significantly more samples of male-sounding voices than female - by a factor of at least ten to 1
 * In our dataset, there are significantly more samples of American accents, as opposed to European, Asian or Latin American accents
 
-Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on. However, that also presents its own issues. At one point we considered filterng out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
+Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on. However, that also presents its own issues. At one point we considered filtering out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
 
 ## Longer term solutions
 
 Longer term, where I think open source Wake Word software is going is that _individuals_ will train their own Wake Word - for example, recording a few dozen examples of their Wake Word, which is then trained against a database of recordings which are known _not_ to be that Wake Word.
 
-This too has privacy implications though; if a Wake Word is trained to a specific individual, then could a voice assistant be used to identify that individual? That is, to distinguish one user from another?  What access would the government have to that data, particularly given the recent passage of the Access and Assistance Bill (#aabill), at least in Australia? This might sound alarmist at this point in history, but we've increasingly seen warrantless access to platform data by agencies which have peripheral or tangential claims to use that data. 
+This too has privacy implications though; if a Wake Word is trained to a specific individual, then could a voice assistant be used to identify that individual? That is, to distinguish one user from another?  What access would the government have to that data, particularly given the recent passage of the Access and Assistance Bill (#aabill), at least in Australia? This might sound alarmist at this point in history, but we've increasingly seen warrantless access to platform data by agencies which have peripheral or tangential claims to use that data.
 
 IMAGE: Government could access your data
+
+You can see that even in the solutions to the challenges with open source voice, there are _moar_ challenges - it's like an origami problem, every time we unfold one part, there's another corner that needs to be unfolded.
 
 So that's some of the challenges we have with Wake Words.
 Let's move on to Speech to Text.
@@ -139,8 +141,71 @@ Mozilla’s DeepSpeech implementation – along with the related Common Voice da
 
 ## STT Challenges
 
+@TODO SLIDE: STT Challenges
 
-One of the biggest challenges with Speech to Text is training the model. Mycroft AI have partnered with Mozilla, enabling our community to help train DeepSpeech. We then pass the trained data back to Mozilla to help improve the accuracy of their models.
+### Training a model
+
+One of the biggest challenges with Speech to Text is accurately training the neural network that it uses to _accurately_ recognise words. There are several challenges with this.
+
+We covered earlier in Wake Words that several English phonemes sound quite similar - B and P sounds, K and G sounds, S and Z sounds and so on - and we see this issue again in speech to text as well.
+
+#### Accuracy of the model
+
+One of the biggest challenges with Speech to Text is training the model. Mycroft AI have partnered with Mozilla, enabling our community to help train DeepSpeech. We then pass the trained data back to Mozilla to help improve the accuracy of their models. Even then, we're finding that the DeepSpeech model for English is not yet accurate enough for it to be our default Speech to Text engine.
+
+SHOW SCREENSHOT: https://home.mycroft.ai/#/deepspeech
+
+Inaccurate speech to text is really frustrating for an end user who's using a voice assistant - it results in really poor _voice user experience_ - so it's something we need to be mindful of.
+
+#### Accents and slang variation
+
+One of the toughest parts to deal with in Speech to Text is being able to recognise accents. Even though we might speak the same language, there can be a lot of regional difference, even within the same country - consider for example a midwestern American accent - y'all - and the nasal twang of Brooklyn _speaks in twang_. Or if you're Australian, there's a distinct difference between northern, broader accents and more urban accents in Melbourne or Sydney.
+
+_maaaaaaaaaaate_
+
+That can be really difficult for STT engines to recognise correctly.
+
+IMAGE: Voice assistants can't understand accents
+
+So, what we find is that we end up with STT engines for different regional pronunciations of a language - such as US English, Australian English or Great Britain English. But even that doesn't address _specific_ accent groups.
+
+#### Slang
+
+Another really challenging aspect in open source voice is slang.
+
+_How many people in the room identify as Australian?_
+
+OK, for those of you who are _not_ Australian, tell me what this means?
+
+OK, that's a pretty close guess.
+
+SLIDE: Bingle in Broady
+
+```
+There's been a car accident in Broadmeadows
+and the Western Freeway is congested
+back to the service station
+and as a result I will be late
+to the social function at Mr Thompson's.
+```
+
+What sort of rules or deductions did you use to get to that conclusion?
+
+* abbreviations - Broady Broadmeadows, Thompsom, Tommo, service station, servo
+* slang - bevvies for beverages, yeah nah mate
+
+So you can imagine the challenge that presents for a Speech to Text engine.
+
+#### Where are we going longer term?
+
+I'm not quite sure where these challenges will head longer term - what I _suspect_ we'll see is a similar approach to Wake Words - where people will end up training individual STT models - that are unique to a person and their particular accent and vocal patterns. I don't think we'll see this in the next year or two though - the amount of data that is required to create an STT model, and the amount of training it requires is huge - and it would probably take several months of recording utterances, and then training them, to build an individual STT model - and it's going to be a lot less accurate than other models which aggregate the data of many individuals.
+
+
+
+
+
+
+
 
 
 

@@ -121,6 +121,7 @@ body {
 
 pre, code {
   font-family: 'Noto Mono', monospace;
+  font-size: 2em;
 }
 
 /*
@@ -417,6 +418,20 @@ h4 {
 #stt-commonvoice {
   background: url(../img/common-voice-languages.png) center center / contain no-repeat;
   background-color: white;
+}
+
+#stt-accents {
+  background: url(../img/wired-voice-next-big-thing-accent.png) center center / contain no-repeat;
+  background-color: white;
+}
+
+#kia-ora-mate {
+  background: url(../img/waikatoreo-kia-ora-mate-via-twitter.jpg) center center / contain no-repeat;
+  background-color: black;
+}
+
+#kia-ora-mate .attribution {
+  margin-top: 45%
 }
 
 
