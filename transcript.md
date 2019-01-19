@@ -1,13 +1,29 @@
 # INTRODUCTION
 
+## Welcome in Te Reo Māori
 
-welcome in Maori
+Tēnā koutou katoa.
+Ko Barwon te awa. Ko Kathy Reid tōku ingoa.
+Ngā mihi nui ki a koutou!
+Kia kaha, te reo.
 
+## Welcome in English
 
+Greetings everyone. My name is Kathy Reid, I'm from Geelong, by the Barwon River.
 
-thank you to the volunteers, AV?
+Thank you so much for joining this talk today, when there are so many excellent talks on at the same time. Firstly I'd like you to join me in thanking ROOM MONITOR & AV CREW NAMES, for volunteering their time. We appreciate all of your help.
 
-mention Duncan MacNeil coined the term - photo of him from LCA2018
+## Background
+
+Up until recently, I led Developer Relations at Mycroft.AI, an open source voice assistant startup based in Kansas City, in Missouri. Mycroft are quite unique in that they provide an end to end open source voice assistant stack.
+
+Many of the voice products that are available today make voice technology look really easy, and smooth, and simple, but I can assure you that it's not! Today we'll be diving into some of the key challenges in the end to end voice stack, how those challenges are _currently_ being tackled, and what we're likely to see in the long term.
+
+If the live demo gods are on my side, we'll also do a live demo of some of the Mycroft features.
+
+## Questions
+
+I'll be delighted to answer your questions, but please do save them up until the end of the talk.
 
 # OVERVIEW
 
@@ -37,9 +53,9 @@ _How many people in the audience are familiar with some type of speech recogniti
 
 OK, this will probably be a recap for many of you, but for the benefit of those who are new to voice, I'm going to provide an introduction to the voice stack.
 
-Just like there are **stacks** of software for things like web servers or databases, or application servers, voice stacks need certain layers as well. So, in a typical web application, let's take it from the back end to the front end, you might have a database layer - postgres or mysql or similar, you might have some sort of database caching layer - Redis or similar, you might have an application layer - PHP with Laravel or Python with Django - that sort of thing, then with a web server in front of that - nginx or apache, and probably a proxy in front of that.
+Just like there are **stacks** of software for things like web servers or databases, or application servers, voice stacks need certain layers as well.
 
-So, a voice stack has a lot of components as well, and they're described in this diagram, by my Mycroft AI colleague, David Smehlik.
+They're described in this diagram, by my Mycroft AI colleague, David Smehlik.
 
 IMAGE: Anatomy of a voice interaction
 
@@ -55,7 +71,9 @@ SLIDE: Wake Word summary
 
 ## PocketSphinx
 
-One of the earliest Wake Word engines used was PocketSphinx. PocketSphinx is part of the broader CMU Sphinx project from Carnegie Mellon University. PocketSphinx recognises Wake Words based on something called _phonemes_. What's a _phoneme_? Good question!
+One of the earliest Wake Word engines used was PocketSphinx. PocketSphinx is part of the broader CMU Sphinx project from Carnegie Mellon University. PocketSphinx recognises Wake Words based on something called _phonemes_.
+
+What's a _phoneme_? Good question!
 
 ## Phonemes
 
@@ -63,13 +81,13 @@ IMAGE: Phonemes
 
 A phoneme is the smallest unit of sound that distinguishes one word from another in a particular language.
 
-Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
+SLIDE: Phonemes in the English language
 
-@TODO english has xxx phonemes, different languages have different ones
+Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
 
 The other challenge with using Phonemes in Wake Words is that certain Phonemes sound very similar to each other.
 
-IMAGE: Similar sounding phonemes
+SLIDE: Similar sounding phonemes
 
 This is one of the reasons why Wake Words for voice assistants are often very different-sounding to other words - that is, they're _differentiated_. Not much sounds like `Alexa` or `OK Google` or `Hey Mycroft`. This is a deliberate choice to make it easier to distinguish between phonemes.  If you're thinking about training your own Wake Word, then this is a factor you need to consider as well.
 
@@ -100,11 +118,18 @@ You may not have thought much before about the sort of sounds that you make whil
 * I've heard people losing their temper with disobedient children
 * and I've heard myself swearing like a sailor when the device hasn't been working properly
 
+Do you want to hear what Wake Word recordings sound like?
+Should we have a listen to a few?
+
+Now I have no idea what we'll hear, so I apologise in advance if we hear swearing, or, other things that might violate the Code of Conduct - but there is that risk - we don't have any minors in the audience?
+
+DEMO of the Precise Wake Word tagger - https://home.mycroft.ai/#/precise
+
 #### Haber's classification of context
 
 That makes us think carefully about the _context_ in which voice assistants are used. One of the frameworks that provides some guidance here is from a researcher called JONATHAN HABER. He's put together a useful categorisation of space called the `Haber Classification of Contexts`
 
-SLIDE: Haber's classfication of Contexts
+SLIDE: Haber's classification of Contexts
 
 You can see immediately from this that where a voice assistant is located can dramatically change the _context_ that it exists in. For example, a voice assistant in a lounge room is likely to be in _social_ space, while one in a bathroom might be in _personal_ space, and one in a bedroom, say on a nightstand, could very well be in _intimate_ space, and collecting recordings of intimate activity.
 
@@ -112,7 +137,9 @@ We're actually seeing some interesting responses to this.
 
 IMAGE: Project Alias
 
-This is Project Alias, and this is like a "hat" for Alexa or Google Home, and what it does is run a small fan - it essentially "blocks" the device from hearing the Wake Word it's programmed with. Instead, you set a different Wake Word on the Project Alias device, and it acts essentially as a Wake Word proxy - and outputs the "real Wake Word" when you say the "proxy Wake Word" - it's really clever actually. Or, I mean, you could just use a voice assistant that doesn't sell your privacy to the highest bidder I suppose ;-)
+This is Project Alias, and this is like a "hat" for Alexa or Google Home, and what it does is run a small fan - it essentially "blocks" the device from hearing the Wake Word it's programmed with. Instead, you set a different Wake Word on the Project Alias device, and it acts essentially as a Wake Word proxy - and outputs the "real Wake Word" when you say the "proxy Wake Word" - it's really clever actually.
+
+Or, I mean, you could just use a voice assistant that doesn't sell your privacy to the highest bidder I suppose ;-)
 
 ### Accuracy
 
@@ -153,16 +180,15 @@ Accurate Speech to Text conversion is one of the most challenging parts of the o
 
 Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too.
 
-One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits.
+One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits. Another upside to having on-device STT is that it reduces the overall round trip time of a voice interaction. If you've ever used a slow internet connection with an AJAX type web application, the principle is very similar - responsiveness is a key feature of a voice user interface that's delightful to use.
 
 SLIDE: Common voice languages
 
-Mozilla’s DeepSpeech implementation – along with the related Common Voice data acquisition project – aims to also support a wider range of minority languages. As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’, although a lot of work is going on to try and get it to work on ARM architecture and embedded devices.
-
+As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’, although a lot of work is going on to try and get it to work on ARM architecture and embedded devices.
 
 ## STT Challenges
 
-@TODO SLIDE: STT Challenges
+SLIDE: STT Challenges
 
 ### Training a model
 
@@ -221,21 +247,41 @@ So you can imagine the challenge that presents for a Speech to Text engine.
 
 I'm not quite sure where these challenges will head longer term - what I _suspect_ we'll see is a similar approach to Wake Words - where people will end up training individual STT models - that are unique to a person and their particular accent and vocal patterns. I don't think we'll see this in the next year or two though - the amount of data that is required to create an STT model, and the amount of training it requires is huge - and it would probably take several months of recording utterances, and then training them, to build an individual STT model - and it's going to be a lot less accurate than other models which aggregate the data of many individuals.
 
+### The role of open source voice technologies and endangered languages
+
+SLIDE: languages
+
+Mozilla’s DeepSpeech implementation – along with the related Common Voice data acquisition project – aims to also support a wider range of minority languages. This in itself is a differentiator from proprietary and commercially-oriented STT engines, which have primarily targeted languages that have a significant number of speakers - or where there is a commercial imperative to supporting a language.
+
+Open source technologies have a role to play in making speech recognition and voice assistant technology more accessible, more available, to smaller language communities. Particularly in Indigenous and remote communities, keeping a language alive becomes more difficult as older generations die out, and younger generations often adopt the majority language of the region as they integrate into schooling and employment functions. There's a whole system of classification around vulnerable and endangered languages, which I won't go into here, but I really think that's an emerging research topic - how can speech recognition and voice technologies help save endangered languages?
+
+Wouldn't it be wonderful if there was a voice assistant available in Yolgnu Matha, or Warlpiri or Tok Pisin or Javanese or Pitjantjatjara?
+
+Well, we're working on it ;-)
+
+WEBSITE: Mycroft Translate
+
+This is Mycroft Translate, a platform where we're crowdsourcing translations in about 40 different languages. Mycroft Translate is based on a platform called Pootle, which is used by the like of LibreOffice and KDE.
+
+This is a really early implementation of a translation suite, and we've definitely encountered a few issues so far.
+
+SLIDE: Issues with Translation
+
+### Line by line translation
+
+At the moment, the way we're handling translations is to import the vocab and dialog files, and parse them line by line, then we present them to translators line by line. This means that they don't provide a lot of context to the translator, and the translator isn't able to translate them as a whole. Going forward, we want to handle translations file by file - this should held address both the context issue, and help create a better translation.
+
+After all, we don't want to fall into the trap that Coke fell into ;-)
+
+SLIDE: Kia Ora, mate
+
+By mixing Maori and Australian, they've ended up saying "Hello Death" in Maori. Or maybe it's just honest advertising, I'm not sure ;-)
 
 
+### Gender and hierarchy
 
-
-
-
-
-
-
-
-
-
-
-
-
+Another challenge we've found with translating dialog and vocab files is that gender and hierarchy are difficult to convey. In some languages, particularly Romance languages, objects have gender. For example, in French a bridge is feminine and in German a bridge is masculine.
+Longer term, we will likely amend the Mycroft Translate platform to be able to hold different translations for different gender and hierarchy situations.
 
 
 
@@ -251,11 +297,6 @@ Confidence of which fallback is activating
 
 
 ## Voice user interaction
-
-Haber's classification of contexts
-
-Wake Word detection
-
 
 
 Speech to Text

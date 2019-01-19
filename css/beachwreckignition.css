@@ -400,6 +400,11 @@ h4 {
   background-color: white;
 }
 
+#phoneme-chart {
+  background: url(../img/Phonemic-Chart.jpg) center center / contain no-repeat;
+  background-color: white;
+}
+
 #wakeword-hat {
   background: url(../img/3-hijack-amazon-echo-and-google-home-for-your-privacy.jpg) center center / contain no-repeat;
   background-color: white;
@@ -431,6 +436,11 @@ h4 {
 
 #haber .attribution {
   width: 40%;
+}
+
+#languages {
+  background: url(../img/languages-edited.png) center center / cover no-repeat;
+  background-color: white;
 }
 
 #kia-ora-mate {
