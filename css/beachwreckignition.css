@@ -425,6 +425,14 @@ h4 {
   background-color: white;
 }
 
+#haber {
+  background: url(../img/haber-classification.svg.png) center right / contain no-repeat;
+}
+
+#haber .attribution {
+  width: 40%;
+}
+
 #kia-ora-mate {
   background: url(../img/waikatoreo-kia-ora-mate-via-twitter.jpg) center center / contain no-repeat;
   background-color: black;

@@ -25,9 +25,9 @@ and even holograms that could talk;
 
 IMAGE: Time Trax
 
-Just like many of the technology showcased in these series - Knight Rider, Star Trek, Time Trax, voice user interfaces are quickly moving from science fiction to science fact. Advances in processor speed, compute power, machine learning and neural networks are quickly making voice user interfaces a reality.
+Just like many of the technologies showcased in these series - Knight Rider, Star Trek, Time Trax, voice user interfaces are quickly moving from science fiction to science fact. Advances in processor speed, compute power, machine learning and neural networks are quickly making voice user interfaces a reality.
 
-However, commercial, proprietary solutions have led the way here - Apple, with Siri, Amazon with Alexa, Microsoft with Cortana, Samsung with Bixy. There are many reasons for this - which I'll discuss throughout the presentation, but like many of you, I'd really like to see some open source solutions available which rival the maturity and feature completeness of the proprietary solutions.
+However, commercial, proprietary solutions have led the way here - Apple, with Siri, Amazon with Alexa, Microsoft - well until recently, with Cortana, Samsung with Bixby. There are many reasons for this - which I'll discuss throughout the presentation, but like many of you, I'd really like to see some open source solutions available which rival the maturity and feature completeness of the proprietary solutions, while **not** using the collection of private data for profiling and advertising purposes.
 
 ## Introduction to the voice stack
 
@@ -51,6 +51,8 @@ Now, I'm going to dive a little deeper into each of the different layers of the 
 
 # WAKE WORD
 
+SLIDE: Wake Word summary
+
 ## PocketSphinx
 
 One of the earliest Wake Word engines used was PocketSphinx. PocketSphinx is part of the broader CMU Sphinx project from Carnegie Mellon University. PocketSphinx recognises Wake Words based on something called _phonemes_. What's a _phoneme_? Good question!
@@ -62,6 +64,8 @@ IMAGE: Phonemes
 A phoneme is the smallest unit of sound that distinguishes one word from another in a particular language.
 
 Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
+
+@TODO english has xxx phonemes, different languages have different ones
 
 The other challenge with using Phonemes in Wake Words is that certain Phonemes sound very similar to each other.
 
@@ -77,6 +81,8 @@ Snowboy is another Hot Word detection engine – available under both commercial
 
 ## Precise
 
+WEBSITE: https://github.com/MycroftAI/mycroft-precise
+
 Mycroft AI’s Precise Wake Word engine works in a similar way – by training a recurrent neural network to differentiate between what is and isn’t a Wake Word. This is then trained on samples that *are* and *are not* Wake Words to improve the detection accuracy.
 
 ## Challenges with Wake Words
@@ -87,6 +93,21 @@ SLIDE: Wake Word challenges
 
 Even though all of these Wake Word detectors work `on device` - meaning that they don't need to send data to the cloud, they are `always listening`. That means that if the device on which the Wake Word listener is connected to the internet, it is _possible_ that Wake Word recordings are sent over the cloud. So this is something that you need to be very aware of with a voice assistant - make yourself aware of how that information is being used. At Mycroft for example, our users must opt-in before recordings are transmitted back to our servers for training to improve accuracy. If the user hasn't opted in, then the recording is discarded.
 
+You may not have thought much before about the sort of sounds that you make while your voice assistant is recording, but it can be both enlightening and confronting. While training Precise, our Wake Word listener, I've heard all sorts of quite personal sounds -
+
+* people engaging in intimate acts
+* people having quite heated arguments, although I've never heard domestic violence - that would be a really difficult position to be in ethically
+* I've heard people losing their temper with disobedient children
+* and I've heard myself swearing like a sailor when the device hasn't been working properly
+
+#### Haber's classification of context
+
+That makes us think carefully about the _context_ in which voice assistants are used. One of the frameworks that provides some guidance here is from a researcher called JONATHAN HABER. He's put together a useful categorisation of space called the `Haber Classification of Contexts`
+
+SLIDE: Haber's classfication of Contexts
+
+You can see immediately from this that where a voice assistant is located can dramatically change the _context_ that it exists in. For example, a voice assistant in a lounge room is likely to be in _social_ space, while one in a bathroom might be in _personal_ space, and one in a bedroom, say on a nightstand, could very well be in _intimate_ space, and collecting recordings of intimate activity.
+
 We're actually seeing some interesting responses to this.
 
 IMAGE: Project Alias
@@ -95,7 +116,7 @@ This is Project Alias, and this is like a "hat" for Alexa or Google Home, and wh
 
 ### Accuracy
 
-IMAGE: To be found
+IMAGE: Wake Word accuracy
 
 I touched on accuracy before, but it's worth expanding on here, as it really is a challenge, not just for open source Wake Word engines, but for all Wake Word engines. It's a key challenge for a number of reasons.
 
