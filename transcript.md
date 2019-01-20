@@ -301,30 +301,49 @@ One of the challenges with Intent Parsers is that of _intent collisions_ – ima
 
 ``“Play something by The Whitlams”``
 
-Depending on what commands or Skills are available, there may be more than one that can handle the intent. How does the Intent Parser determine which one to pass to? At Mycroft AI we have recently implement our `Common Play Framework`, which assigns different weights to different entities, leading to a more accurate overall intent confidence score.
+Depending on what commands or Skills are available, there may be more than one that can handle the intent. How does the Intent Parser determine which one to pass to? At Mycroft AI we have recently implemented our `Common Play Framework`, which assigns different weights to different entities, leading to a more accurate overall intent confidence score.
 
 SLIDE: Common Play Framework
 
+So that's a little bit about intents and how we handle those.
 
-## General challenges with Skills
+# TEXT TO SPEECH
 
+SLIDE: Text to Speech
 
-
-## Fallback Skills
-Confidence of which fallback is activating
-
-
-
-## Voice user interaction
-
-
-Text to Speech
 At the other end of the voice interaction lifecycle is Text to Speech. Again, there are several opensource TTS options available. In general, a TTS model is trained by gathering recordings of language speakers, using a structured corpus – or set of phrases. Machine learning techniques are then applied to synthesize the recordings into a general TTS model – usually for a specific language.
+
+
 MaryTTS is one of the most popular, and supports several European languages.
 Espeak has TTS models available for over 20 languages, although the quality of synthesis varies considerably between languages.
-Mycroft AI’s Mimic TTS engine is based on CMU Flite and has two voices available for English. The newer Mimic 2 TTS engine is a Tacotron-based implementation, which is a less robotic, more natural sounding voice. Mimic runs on-device, while Mimic 2, due to compute requirements, currently runs in the cloud. Additionally, Mycroft AI have recently released the Mimic Recording Studio, an open source, Docker-based application that allows people to take recordings which can then be trained using Mimic 2 into an individual voice.
-This solves one of the many problems with TTS – having natural-sounding voices available in a range of genders and languages / dialects.
-Parting notes
+
+Mycroft AI’s Mimic TTS engine is based on CMU Flite and has two voices available for English. The newer Mimic 2 TTS engine is a Tacotron-based implementation, which is a less robotic, more natural sounding voice. Mimic runs on-device, while Mimic 2, due to compute requirements, currently runs in the cloud.
+
+Additionally, Mycroft AI have recently released the Mimic Recording Studio, an open source, Docker-based application that allows people to take recordings which can then be trained using Mimic 2 into an individual voice.
+
+DEMO: Mimic recording studio 
+
+## TTS Challenges
+
+SLIDE: TTS Challenges
+
+### Natural sounding voice
+
+The Mimic Recording Studio is intended to help solve one of the many problems with TTS - having natural-sounding voices available in a range of genders and languages / dialects. In our experience, we've found that the key to a natural sounding TTS voice is that the initial recordings themselves need to be really consistent - they need to be done at the same amount of gain, otherwise the resulting voice is distorted. Another factor that we've found contributes to a natural sounding voice is a consistent _pace_ in recording.
+
+### Poor pronunciation
+
+Even controlling for volume and for pace, the trained voice will inevitably get word pronunciation wrong, and so we've implemented a platform to allow the community to correct pronunciation, which is then validated.
+
+WEBSITE: https://mimic.mycroft.ai/pronounce
+
+
+
+
+# CONCLUSION
+
+SLIDE: Thank you
+
 As you can see, there is an emerging range of open source voice tools becoming available, each with their own benefits and drawbacks. One thing is for certain though – the impetus towards more mature open source voice solutions that protect privacy is here to stay!
 
 
