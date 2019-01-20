@@ -283,9 +283,28 @@ By mixing Maori and Australian, they've ended up saying "Hello Death" in Maori. 
 Another challenge we've found with translating dialog and vocab files is that gender and hierarchy are difficult to convey. In some languages, particularly Romance languages, objects have gender. For example, in French a bridge is feminine and in German a bridge is masculine.
 Longer term, we will likely amend the Mycroft Translate platform to be able to hold different translations for different gender and hierarchy situations.
 
+So, that's a little bit about Speech to text, and how we're making Mycroft a multilingual platform.
 
+# INTENT PARSERS
 
-# SKILLS
+SLIDE: Intent Parsers
+
+A strong voice stack also needs to ensure that the **intent** of the user is accurately captured. There are several open source intent parsers available.
+
+Rasa is open source and widely used in both voice assistants and chatbots.
+
+Mycroft AI uses two intent parsers. The first, Adapt, uses a keyword matching approach to determine a confidence score, then passes control to the Skill, or command, with the highest confidence. Padatious takes a different approach, where examples of entities are provided, so that it can learn to recognise an entity within an utterance.
+
+## Intent parser challenges
+
+One of the challenges with Intent Parsers is that of _intent collisions_ – imagine the utterance;
+
+``“Play something by The Whitlams”``
+
+Depending on what commands or Skills are available, there may be more than one that can handle the intent. How does the Intent Parser determine which one to pass to? At Mycroft AI we have recently implement our `Common Play Framework`, which assigns different weights to different entities, leading to a more accurate overall intent confidence score.
+
+SLIDE: Common Play Framework
+
 
 ## General challenges with Skills
 
@@ -299,20 +318,6 @@ Confidence of which fallback is activating
 ## Voice user interaction
 
 
-Speech to Text
-
-Accurate Speech to Text conversion is one of the most challenging parts of the open source voice stack.
-Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too. One of Kaldi’s most attractive features is that it works “on-device”.
-Mozilla’s DeepSpeech implementation – part of their broader Common Voice project – aims to also support a wider range of minority languages. As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’.
-One of the biggest challenges with Speech to Text is training the model. Mycroft AI have partnered with Mozilla, enabling our community to help train DeepSpeech. We then pass the trained data back to Mozilla to help improve the accuracy of their models.
-Intent Parsing
-
-A strong voice stack also needs to ensure that the intent of the user is accurately captured. There are several open source intent parsers available.
-Rasa is open source and widely used in both voice assistants and chatbots.
-Mycroft AI uses two intent parsers. The first, Adapt, uses a keyword matching approach to determine a confidence score, then passes control to the Skill, or command, with the highest confidence. Padatious takes a different approach, where examples of entities are provided, so that it can learn to recognise an entity within an utterance.
-One of the challenges with Intent Parsers is that of intent collisions – imagine the utterance;
-“Play something by The Whitlams”
-Depending on what commands or Skills are available, there may be more than one that can handle the intent. How does the Intent Parser determine which one to pass to? At Mycroft AI we have recently implement our Common Play Framework, which assigns different weights to different entities, leading to a more accurate overall intent confidence score.
 Text to Speech
 At the other end of the voice interaction lifecycle is Text to Speech. Again, there are several opensource TTS options available. In general, a TTS model is trained by gathering recordings of language speakers, using a structured corpus – or set of phrases. Machine learning techniques are then applied to synthesize the recordings into a general TTS model – usually for a specific language.
 MaryTTS is one of the most popular, and supports several European languages.

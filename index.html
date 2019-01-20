@@ -220,11 +220,45 @@ to the social function at Mr Thompson's.
     </div>
   </div>
 
-
-
   <div id="kia-ora-mate" class="step" data-x="4000" data-y="0">
     <div class="step-container">
       <p class="attribution"><strong>Attribution</strong>: <a href="https://twitter.com/waikatoreo/status/1051264259089264640">kia ora mate</em> via @waikatoreo on Twitter.</a></p>
+    </div>
+  </div>
+
+  <div id="intent-parsers" class="step" data-x="2000" data-y="0">
+    <div class="step-container">
+      <h1>Intent Parsers</h1>
+      <ul class="bulletedList">
+        <li><strong>Rasa</strong> -  https://rasa.com/docs/nlu/</li>
+        <li><strong>Mycroft Adapt</strong> - https://github.com/MycroftAI/adapt</li>
+        <li><strong>Mycroft Padatious</strong> - https://github.com/MycroftAI/padatious</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="intent-challenges" class="step" data-x="2000" data-y="0">
+    <div class="step-container">
+      <h1>Intent Parser challenges</h1>
+      <ul class="bulletedList">
+        <li><strong>Intent collisions</strong> - Diambiguating intents so that the "most likely" command is invoked for the user</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="common-play-framework" class="step" data-x="4800" data-y="500">
+    <div class="step-container">
+      <h1>Common Play Framework</h1>
+
+        <p><code><span class="highlight">CPSMatchLevel.EXACT</span></code> (The input matches exact)</p>
+        <p><code><span class="highlight">CPSMatchLevel.MULTI_KEY</span></code> (The input contains multiple matches such as Artist and Album title)</p>
+        <p><code><span class="highlight">CPSMatchLevel.TITLE</span></code> (The phrase contains a matching title)</p>
+        <p><code><span class="highlight">CPSMatchLevel.ARTIST</span></code> (The phrase contains a matching artist)</p>
+        <p><code><span class="highlight">CPSMatchLevel.CATEGORY</span></code> (The phrase contains a category supported by the skill, Rock, bitpop, Podcast etc.)</p>
+        <p><code><span class="highlight">CPSMatchLevel.GENERIC</span></code> (Generic match, maybe contains the skill title but no media match)</p>
+        <br>
+        <p>where <code><span class="highlight">CPSMatchLevel.EXACT</span></code> is the greatest confidence and the <code><span class="highlight">CPSMatchLevel.GENERIC</span></code> is lowest.</p>
+
     </div>
   </div>
 
@@ -233,155 +267,11 @@ to the social function at Mr Thompson's.
 
 
 
-
-
-
-
-
-
-
-  <div id="capabilitymaturity" class="step" data-x="0" data-y="3200" data-rotate="-30">
-    <h1></h1>
-    <h2>A maturity model for civic open data</h2>
-    <ul class="bulletedList">
-      <li><strong>Level 1:</strong> ad hoc - <span class="highlight">lack of data</span></li>
-      <li><strong>Level 2:</strong> repeatable - <span class="highlight">hack the data</span></li>
-      <li><strong>Level 3:</strong> defined - <span class="highlight">track the data</span></li>
-      <li><strong>Level 4:</strong> managed - <span class="highlight">the knack of data</span></li>
-      <li><strong>Level 5:</strong> optimized - <span class="highlight">data backbone</span></li>
-    </ul>
-  </div>
-
-  <div id="level1" class="step" data-x="-100" data-y="3200" data-rotate="-90">
-    <h1>Level 1 - lack of data</h1>
-    <ul class="bulletedList">
-      <li>what data is available? - some already available <br>but not <span class="highlight">machine-readable</span></li>
-      <li>where is the data stored? which format?</li>
-      <li>what are the <span class="highlight">privacy</span> considerations? </li>
-      <li>garnering support and <span class="highlight">educating</span> stakeholders</li>
-    </ul>
-    <h2>Decisions driven by the <br><span class="highlight">Digital Geelong Strategy</span></h2>
-  </div>
-
-  <div id="digitalgeelong" class="step" data-x="2500" data-y="1200">
-    <img src="img/stakeholders.png" class="stakeholders">
-  </div>
-
-  <div id="datagovau" class="step" data-x="0" data-y="4800" data-scale="2" data-rotate="120">
-    <h1>Key decision: <br>use <span class="highlight">data.gov.au</span> <br>as open data platform</h1>
-  </div>
-
-
-
-  <div id="level2" class="step" data-x="1200" data-y="4100" data-rotate="180">
-    <h1>Level 2 - hack the data</h1>
-    <ul class="bulletedList">
-      <li>GovHack - open data hackathon</li>
-      <li>Code for Australia Open Data Fellowship</li>
-      <li>Risks and challenges - open data in the headlines</li>
-    </ul>
-  </div>
-
-  <div id="govhack" class="step" data-x="3500" data-y="1500">
-  </div>
-
-  <div id="govhack2" class="step" data-x="4800" data-y="1800">
-  </div>
-
-  <div id="govhack3" class="step" data-x="3500" data-y="2500">
-  </div>
-
-  <div id="govhack4" class="step" data-x="4800" data-y="5200">
-  </div>
-
-  <div id="learning1" class="step" data-x="-200" data-y="4800" data-scale="2" data-rotate="-60">
-    <h1>Key learning: <br>It's difficult to <span class="highlight">attract participants</span> - hackers, hustlers and hipsters - <br>to <span class="highlight">regional events</span> </h1>
-  </div>
-
-  <div id="geelongfreewifi" class="step" data-x="2900" data-y="4000">
-  </div>
-
-  <div id="learning2" class="step" data-x="-600" data-y="6500" data-scale="2" data-rotate="30">
-    <h1>Key learning: <br>You need a way to <br><span class="highlight">mature prototypes into products</span> <br>that are ready for deployment</h1>
-  </div>
-
-  <div id="geelongadvertiser" class="step" data-x="4800" data-y="4000" data-rotate="180">
-  </div>
-
-  <div id="learning3" class="step" data-x="200" data-y="8000" data-scale="2" data-rotate="0">
-    <h1>Key learning: <br>You need to have a <br><span class="highlight">risk appetite</span> to ride out <br>the negative impacts <br>of open data</h1>
-  </div>
-
-
-
-  <div id="level3" class="step" data-x="300" data-y="7900" data-rotate="120">
-    <h1>Level 3 - track the data</h1>
-    <ul class="bulletedList">
-      <li>Geelong <span class="highlight">open data portal</span></li>
-      <li>Targeted growth over data sets - <br>over 160 data sets now available </li>
-      <li><span class="highlight">Clever and Creative 30-year strategy</span> - <br>providing context and a backdrop</li>
-    </ul>
-  </div>
-
-  <div id="opendataportal" class="step" data-x="4800" data-y="2900" data-rotate="180">
-  </div>
-
-  <div id="opendatastats" class="step" data-x="3000" data-y="0" data-rotate="30">
-  </div>
-
-  <div id="geemap" class="step" data-x="3500" data-y="7900">
-    <h1 class="left"><a href="https://geemap.com.au>">geemap.com.au</a></h1>
-  </div>
-
-  <div id="clevercreative" class="step" data-x="4800" data-y="500">
-  </div>
-
-  <div id="by2047" class="step" data-x="4800" data-y="500">
-    <p class="quote">"By 2047, Greater Geelong will be internationally recognised as a <span class="highlight">clever and creative city-region</span> that is <span class="highlight">forward looking, enterprising and adaptive</span>, and cares for its people and environment."</p>
-  </div>
-
-  <div id="clevercreativevoting" class="step" data-x="4000" data-y="500" data-rotate="30">
-  </div>
-
-  <div id="unesco" class="step" data-x="200" data-y="500" data-rotate="60">
-  </div>
-
-
-
-  <div id="level4" class="step" data-x="6000" data-y="-300" data-rotate="120">
-    <h1>Level 4 - the knack of data</h1>
-    <ul class="bulletedList">
-      <li>Open data as a <span class="highlight">platform</span> <br>for civic and urban change - differentiated services</li>
-      <li>Publicly generated data becomes <br><span class="highlight">an input</span> into the platform </li>
-      <li>Towards a <span class="highlight">Smart City</span></li>
-    </ul>
-  </div>
-
-  <div id="mavhack" class="step" data-x="3500" data-y="6500" data-rotate="180">
-  </div>
-
-  <div id="bollards" class="step" data-x="4200" data-y="9000" data-rotate="0">
-    <h1 class="right">Smart <br>Bollard <br>Trial</h1>
-    <img src="img/smart-bollards-pic.png" class="bollards">
-  </div>
-
-
-
-
-  <div id="level5" class="step" data-x="4300" data-y="11000" data-rotate="60">
-    <h1>Level 5 - a data backbone</h1>
-    <ul class="bulletedList">
-      <li>Open data as fuel for Smart City platforms</li>
-      <li>Open data as an influencer and input into policy decisions - a <span class="highlight">continual data lifecycle</span></li>
-      <li>A Green Spine and a Data Backbone - the City as data</li>
-    </ul>
-  </div>
-
-  <div id="cityasdata" class="step" data-x="7000" data-y="9000" data-scale="1" data-rotate="30">
-  </div>
-
-  <div id="thankyou" class="step" data-x="6000" data-y="8000" data-scale="1">
-    <h1 class="highlight thin large">thank you</h1>
+  <div id="thankyou" class="step" data-x="2000" data-y="0">
+    <div class="step-container">
+      <h1>Thank you :-)</h1>
+      <p>Questions warmly welcomed</p>
+    </div>
   </div>
 
 
