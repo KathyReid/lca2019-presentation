@@ -41,7 +41,7 @@ and even holograms that could talk;
 
 IMAGE: Time Trax
 
-Just like many of the technologies showcased in these series - Knight Rider, Star Trek, Time Trax, voice user interfaces are quickly moving from science fiction to science fact. Advances in processor speed, compute power, machine learning and neural networks are quickly making voice user interfaces a reality.
+Just like many of the technologies showcased in these series - Knight Rider, Star Trek, Time Trax, voice user interfaces are quickly moving from science fiction to science fact. Advances in processor speed, compute power, machine learning and neural networks to act as a classifier are quickly making voice user interfaces a reality.
 
 However, commercial, proprietary solutions have led the way here - Apple, with Siri, Amazon with Alexa, Microsoft - well until recently, with Cortana, Samsung with Bixby. There are many reasons for this - which I'll discuss throughout the presentation, but like many of you, I'd really like to see some open source solutions available which rival the maturity and feature completeness of the proprietary solutions, while **not** using the collection of private data for profiling and advertising purposes.
 
