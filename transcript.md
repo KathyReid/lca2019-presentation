@@ -83,6 +83,8 @@ A phoneme is the smallest unit of sound that distinguishes one word from another
 
 SLIDE: Phonemes in the English language
 
+There are about 44 Phonemes in the English languages, and you can see them all here.
+
 Different languages have different phonemes – for example, it’s hard to approximate the Indonesian trill “r” in English (this phoneme is the sound you make when you “roll” your r sound).  Using phonemes for Wake Word detection can also therefore be a challenge for people who are not native speakers of a language – as their pronunciation may differ from the “standard” pronunciation of a Wake Word.
 
 The other challenge with using Phonemes in Wake Words is that certain Phonemes sound very similar to each other.
@@ -321,7 +323,7 @@ Mycroft AI’s Mimic TTS engine is based on CMU Flite and has two voices availab
 
 Additionally, Mycroft AI have recently released the Mimic Recording Studio, an open source, Docker-based application that allows people to take recordings which can then be trained using Mimic 2 into an individual voice.
 
-DEMO: Mimic recording studio 
+DEMO: Mimic recording studio
 
 ## TTS Challenges
 
