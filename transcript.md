@@ -113,7 +113,7 @@ SLIDE: Wake Word challenges
 
 Even though all of these Wake Word detectors work `on device` - meaning that they don't need to send data to the cloud, they are `always listening`. That means that if the device on which the Wake Word listener is connected to the internet, it is _possible_ that Wake Word recordings are sent over the cloud. So this is something that you need to be very aware of with a voice assistant - make yourself aware of how that information is being used. At Mycroft for example, our users must opt-in before recordings are transmitted back to our servers for training to improve accuracy. If the user hasn't opted in, then the recording is discarded.
 
-You may not have thought much before about the sort of sounds that you make while your voice assistant is recording, but it can be both enlightening and confronting. While training Precise, our Wake Word listener, I've heard all sorts of quite personal sounds -
+You may not have thought much before about the sort of sounds that you make while your voice assistant is recording, but it can be both _enlightening_ and _confronting_. While training Precise, our Wake Word listener, I've heard all sorts of quite personal sounds -
 
 * people engaging in intimate acts
 * people having quite heated arguments, although I've never heard domestic violence - that would be a really difficult position to be in ethically
@@ -158,15 +158,17 @@ What we've seen happen in reality at Mycroft AI - I can't speak for other voice 
 * We find that there are significantly more samples of male-sounding voices than female - by a factor of at least ten to 1
 * In our dataset, there are significantly more samples of American accents, as opposed to European, Asian or Latin American accents
 
-Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on. However, that also presents its own issues. At one point we considered filtering out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
+Combined, what this means is that if you're a woman, who's not American, you're _much_ less likely to have the Wake Word engine correctly identify you. Really, the only way to combat these sorts of biases is to have a greater range of samples to train on.
+
+However, that also presents its own issues. At one point we considered filtering out a percentage of male Wake Word samples, to try and remove some of the bias in the data set - but this would mean tagging users and samples with a gender flag or some form of identifier - and as a privacy-focussed company, that wasn't something that we were comfortable doing - similar with accents which might indicate cultural or ethnic heritage.
 
 ## Longer term solutions
 
 Longer term, where I think open source Wake Word software is going is that _individuals_ will train their own Wake Word - for example, recording a few dozen examples of their Wake Word, which is then trained against a database of recordings which are known _not_ to be that Wake Word.
 
-This too has privacy implications though; if a Wake Word is trained to a specific individual, then could a voice assistant be used to identify that individual? That is, to distinguish one user from another?  What access would the government have to that data, particularly given the recent passage of the Access and Assistance Bill (#aabill), at least in Australia? This might sound alarmist at this point in history, but we've increasingly seen warrantless access to platform data by agencies which have peripheral or tangential claims to use that data.
-
 IMAGE: Government could access your data
+
+This too has privacy implications though; if a Wake Word is trained to a specific individual, then could a voice assistant be used to identify that individual? That is, to distinguish one user from another?  What access would the government have to that data, particularly given the recent passage of the Access and Assistance Bill (#aabill), at least in Australia? This might sound alarmist at this point in history, but we've increasingly seen warrantless access to platform data by agencies which have peripheral or tangential claims to use that data.
 
 You can see that even in the solutions to the challenges with open source voice, there are _moar_ challenges - it's like an origami problem, every time we unfold one part, there's another corner that needs to be unfolded.
 
@@ -182,9 +184,13 @@ Accurate Speech to Text conversion is one of the most challenging parts of the o
 
 Kaldi is one of the most popular Speech to Text engines available, and it has several “models” to choose from. In the world of Speech to Text, a “model” is a neural network that has been trained on specific data sets, using a specific algorithm. Kaldi has models for English, Chinese and some other languages too.
 
-One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits. Another upside to having on-device STT is that it reduces the overall round trip time of a voice interaction. If you've ever used a slow internet connection with an AJAX type web application, the principle is very similar - responsiveness is a key feature of a voice user interface that's delightful to use.
+One of Kaldi’s most attractive features is that it works “on-device” - that is, the Utterance that the user speaks doesn't need to go up to the cloud to be transcribed into text - whch has obvious privacy benefits. Another upside to having on-device STT is that it reduces the overall round trip time of a voice interaction. If you've ever used a slow internet connection with an AJAX type web application, the principle is very similar - **responsiveness** is a key feature of a voice user interface that's delightful to use.
+
+However, Kaldi *does* require significant computing resources. This means that it's generally not suitable for running on a Raspberry Pi.
 
 SLIDE: Common voice languages
+
+This is Common Voice from Mozilla, which is one of several initiatives that they have in the open voice space. So, Common Voice is collecting lots of samples of different voices to aid in Speech Recognition in different languages, and Deep Speech is the Speech to Text engine they have that uses Common Voice data, as well as other data sets.
 
 As at the time of writing, the compute requirements for DeepSpeech mean that it can only be used as a cloud implementation – it is too “heavy” to run ‘on device’, although a lot of work is going on to try and get it to work on ARM architecture and embedded devices.
 
@@ -271,7 +277,9 @@ SLIDE: Issues with Translation
 
 ### Line by line translation
 
-At the moment, the way we're handling translations is to import the vocab and dialog files, and parse them line by line, then we present them to translators line by line. This means that they don't provide a lot of context to the translator, and the translator isn't able to translate them as a whole. Going forward, we want to handle translations file by file - this should held address both the context issue, and help create a better translation.
+At the moment, the way we're handling translations is to import the vocab and dialog files, and parse them line by line, then we present them to translators line by line. This means that they don't provide a lot of **context** to the translator, and the translator isn't able to translate them as a whole. This means that the translation itself can be sub-optimal.
+
+Going forward, we want to handle translations file by file - this should held address both the context issue, and help create a better translation.
 
 After all, we don't want to fall into the trap that Coke fell into ;-)
 
@@ -301,7 +309,7 @@ Mycroft AI uses two intent parsers. The first, Adapt, uses a keyword matching ap
 
 One of the challenges with Intent Parsers is that of _intent collisions_ – imagine the utterance;
 
-``“Play something by The Whitlams”``
+``“Play the news”``
 
 Depending on what commands or Skills are available, there may be more than one that can handle the intent. How does the Intent Parser determine which one to pass to? At Mycroft AI we have recently implemented our `Common Play Framework`, which assigns different weights to different entities, leading to a more accurate overall intent confidence score.
 
@@ -313,8 +321,9 @@ So that's a little bit about intents and how we handle those.
 
 SLIDE: Text to Speech
 
-At the other end of the voice interaction lifecycle is Text to Speech. Again, there are several opensource TTS options available. In general, a TTS model is trained by gathering recordings of language speakers, using a structured corpus – or set of phrases. Machine learning techniques are then applied to synthesize the recordings into a general TTS model – usually for a specific language.
+At the other end of the voice interaction lifecycle is Text to Speech. Again, there are several opensource TTS options available.
 
+In general, a TTS model is trained by gathering recordings of language speakers, using a structured corpus – or set of phrases. Machine learning techniques are then applied to synthesize the recordings into a general TTS model – usually for a specific language.
 
 MaryTTS is one of the most popular, and supports several European languages.
 Espeak has TTS models available for over 20 languages, although the quality of synthesis varies considerably between languages.
@@ -331,7 +340,9 @@ SLIDE: TTS Challenges
 
 ### Natural sounding voice
 
-The Mimic Recording Studio is intended to help solve one of the many problems with TTS - having natural-sounding voices available in a range of genders and languages / dialects. In our experience, we've found that the key to a natural sounding TTS voice is that the initial recordings themselves need to be really consistent - they need to be done at the same amount of gain, otherwise the resulting voice is distorted. Another factor that we've found contributes to a natural sounding voice is a consistent _pace_ in recording.
+The Mimic Recording Studio is intended to help solve one of the many problems with TTS - having natural-sounding voices available in a range of genders and languages / dialects.
+
+In our experience, we've found that the key to a natural sounding TTS voice is that the initial recordings themselves need to be really consistent - they need to be done at the same amount of gain, otherwise the resulting voice is distorted. Another factor that we've found contributes to a natural sounding voice is a consistent _pace_ in recording.
 
 ### Poor pronunciation
 
@@ -340,13 +351,12 @@ Even controlling for volume and for pace, the trained voice will inevitably get 
 WEBSITE: https://mimic.mycroft.ai/pronounce
 
 
-
-
 # CONCLUSION
-
-SLIDE: Thank you
 
 As you can see, there is an emerging range of open source voice tools becoming available, each with their own benefits and drawbacks. One thing is for certain though – the impetus towards more mature open source voice solutions that protect privacy is here to stay!
 
+As a parting note, I'm going to leave you with this quote from someone I admire greatly.
 
-image credits
+SLIDE: Malala Yousafzai quote 
+
+SLIDE: Thank you
