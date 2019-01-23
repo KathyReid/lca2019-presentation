@@ -357,6 +357,6 @@ As you can see, there is an emerging range of open source voice tools becoming a
 
 As a parting note, I'm going to leave you with this quote from someone I admire greatly.
 
-SLIDE: Malala Yousafzai quote 
+SLIDE: Malala Yousafzai quote
 
 SLIDE: Thank you
